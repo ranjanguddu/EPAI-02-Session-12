@@ -1,21 +1,3 @@
-# Session-12
-## Topic:
-
-* Lazy Iterables
-* In-Built Iterables
-* Sorting Iterables
-* The iter() function
-* Iterating Callables
-* Delegating Iterators
-* Reversed Iteration
-* Using Iterators as function arguments
-
-___
-## AssignmentQuestios
-
-##### 1. Refactor the [Polygon](https://github.com/ranjanguddu/EPAi-03_session-10/blob/master/session10.py) class so that all the calculated properties are lazy properties, i.e. they should still be calculated properties, but they should not have to get recalculated more than once (since we made our Polygon class "immutable")
-
-```python
 import math
 
 class Polygon:
@@ -34,7 +16,6 @@ class Polygon:
 
 	@property
 	def radius(self):
-		'''getter method for radius gets  called'''
 		#print('getter method for radius gets  called')
 		return self._radius
 
@@ -45,7 +26,6 @@ class Polygon:
 
 	@radius.setter
 	def radius(self, rad):
-		'''getter method for num_side gets  called'''
 		#print('setter method for radius gets  called')
 		if isinstance(rad, int or float):
 			if rad<0:
@@ -60,7 +40,6 @@ class Polygon:
 	
 	@num_side.setter
 	def num_side(self, num):
-		'''setter method for num_side gets  called'''
 		#print('setter method for num_side gets  called')
 		if isinstance(num, int):
 			if num<3:
@@ -159,54 +138,6 @@ class Polygon:
 		'''__rper__ method to give user an idea about the object creation'''
 		#print(f'Calling Polygon __repr__ ')
 		return f'Polygon:(num_side={self.num_side}, circumradius={self.radius}) created'
-
-```
-##### 2. Refactor the Polygons (sequence) type, into an iterable. Make sure also that the elements in the iterator are computed lazily - i.e. you can no longer use a list as an underlying storage mechanism for your polygons. You'll need to implement both an iterable, and an iterator.
-
-```python
-from Polygon import *
-
-class Poly:
-	def __init__(self, N):
-		'''to instantiate the class'''
-
-		print(f'Calling Poly __init__ ')
-		self.max_vertices  = N
-		self.Radius  = 15
-		
-
-	def __iter__(self):
-		'''iter function within an iterable which return an iterator'''
-		return self.PolyIterator(self.max_vertices, self.Radius)
-
-	class PolyIterator:
-		''' Iterator  class for Poly'''
-		def __init__(self, vertices, rad):
-			''' init funnction of Polygon Iterator '''
-			self.vertices = vertices
-			self.ctr = 3
-			self.rad = rad
-
-		def __iter__(self):
-			'''iter function within an iterator which return self'''
-			return self
-
-		def __next__(self):
-			'''__next__ need to  be defined for an iterator '''
-			if self.ctr >= self.vertices+1:
-				raise StopIteration
-
-			else:
-				poly = Polygon(self.ctr, self.rad)
-				self.ctr += 1
-				return poly
-
-```
-
-
-
-**Session - 12 Assignment iPython NoteBook can be foud [here](https://github.com/ranjanguddu/EPAi-03-Session-11/blob/main/Session-11_output.ipynb)**
-
 
 
 
