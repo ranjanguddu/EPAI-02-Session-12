@@ -205,7 +205,7 @@ class Poly:
 
 
 
-**Session - 12 Assignment iPython NoteBook can be foud [here](https://github.com/ranjanguddu/EPAi-03-Session-11/blob/main/Session-11_output.ipynb)**
+**Session - 12 Assignment iPython NoteBook can be foud [here](https://colab.research.google.com/drive/1_GlVWuz1UJBBbjvFV-9YiV_sJChITAbr#scrollTo=hFyWiKz2A3Rv)**
 
 
 
